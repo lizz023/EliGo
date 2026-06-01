@@ -1,7 +1,6 @@
 const express = require('express');
 const app = express();
-
-const PORT = 3000;
+const PORT = process.env.PORT || 3000;
 
 // Middleware: habilita leer body en formato JSON
 // Sin esta línea, req.body siempre será undefined
