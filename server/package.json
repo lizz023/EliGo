@@ -1,0 +1,23 @@
+{
+  "name": "eligo",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lizz023/EliGo.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/lizz023/EliGo/issues"
+  },
+  "homepage": "https://github.com/lizz023/EliGo#readme",
+  "description": "",
+  "dependencies": {
+    "express": "^5.2.1"
+  }
+}
