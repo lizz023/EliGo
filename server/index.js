@@ -8,9 +8,24 @@ app.use(cors());
 app.use(express.json());
 
 let inventario = [
-{ id: 1, nombre: 'MacBook Pro', precio: 2500, stock: 5 },
-{ id: 2, nombre: 'Monitor 4K', precio: 800, stock: 12 },
-{ id: 3, nombre: 'Teclado SENA', precio: 45, stock: 30 },
+{
+    id: 1,
+    nombre: 'Hamburguesa Clásica',
+    precio: 19900,
+    stock: 20
+  },
+  {
+    id: 2,
+    nombre: 'Pizza Pepperoni',
+    precio: 24900,
+    stock: 15
+  },
+  {
+    id: 3,
+    nombre: 'Combo Mexicano',
+    precio: 22900,
+    stock: 10
+  }
 ];
 
 // Listar productos del inventario

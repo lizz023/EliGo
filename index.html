@@ -104,6 +104,7 @@
       </div>
     </div>
   </section>
+
 <!-- PRODUCTOS -->
   <section id="productos" class="py-5 bg-light">
     <div class="container">
@@ -111,6 +112,43 @@
       <h2 class="fw-bold text-center mb-4">
         Administración de Productos
       </h2>
+
+      <form id="productoForm" class="row g-3 mb-4">
+        <div class="col-md-4">
+          <input
+            type="text"
+            id="nombre"
+            class="form-control"
+            placeholder="Nombre del producto"
+            required>
+        </div>
+
+        <div class="col-md-3">
+          <input
+            type="number"
+            id="precio"
+            class="form-control"
+            placeholder="Precio"
+            required>
+        </div>
+
+        <div class="col-md-3">
+          <input
+            type="number"
+            id="stock"
+            class="form-control"
+            placeholder="Stock"
+            required>
+        </div>
+
+        <div class="col-md-2">
+          <button
+            type="submit"
+            class="btn btn-warning w-100">
+            Agregar
+          </button>
+        </div>
+      </form>
 
       <div class="table-responsive">
         <table class="table table-striped table-hover">
@@ -132,7 +170,6 @@
 
     </div>
   </section>
-
 
   <!-- ACERCA -->
   <section id="about" class="py-5 bg-light text-center">
