@@ -1,10 +1,10 @@
 const express = require('express');
+const cors = require('cors');
+
 const app = express();
 const PORT = process.env.PORT || 3000;
 
-// Middleware: habilita leer body en formato JSON
-// Sin esta línea, req.body siempre será undefined
-
+app.use(cors());
 app.use(express.json());
 
 let inventario = [
