@@ -1,55 +1,45 @@
+const API_URL = "https://eligo-m3fs.onrender.com/productos";
 
+const tablaProductos =
+  document.getElementById("tablaProductos");
 
-let opcionUsuario;
-let categoriaSeleccionada;
-let mensajeResultado;
+document.addEventListener(
+  "DOMContentLoaded",
+  cargarProductos
+);
 
+async function cargarProductos() {
 
+  try {
 
-let x;
-let dato;
+    const respuesta =
+      await fetch(API_URL);
 
-function getUserSelection() {
-  // obtiene opción del usuario
-}
+    const data =
+      await respuesta.json();
 
-function showResult() {
-  // muestra resultado en pantalla
-}
+    tablaProductos.innerHTML = "";
 
-const botonIniciar = document.getElementById("btnIniciar"); 
+    data.productos.forEach(producto => {
 
-const contenedorResultado = document.getElementById("resultado");
+      tablaProductos.innerHTML += `
+        <tr>
+          <td>${producto.id}</td>
+          <td>${producto.nombre}</td>
+          <td>$${producto.precio}</td>
+          <td>${producto.stock}</td>
+        </tr>
+      `;
 
-function iniciarAplicacion() { 
-  let opcion = obtenerSeleccionUsuario(); 
-  mostrarResultado(opcion); 
-}
+    });
 
-// Verifica que el usuario haya seleccionado una opción 
-if (opcionUsuario !== ""){ 
-    mostrarResultado(); 
-}
+  } catch(error) {
 
-if (!opcionUsuario){ 
-  alert("Por favor selecciona una opción"); 
-}
+    console.error(
+      "Error al cargar productos:",
+      error
+    );
 
-const botonOpcion = document.getElementById("btnOpcion"); 
+  }
 
-botonOpcion.addEventListener("click", function (){
-
-   let opcionUsuario = document.getElementById("entradaOpcion").value; 
-   
-   if (!opcionUsuario){ 
-      alert("Debes ingresar una opción"); 
-      return; 
-    } 
-    
-    mostrarResultado(opcionUsuario); 
-}); 
-    
-function mostrarResultado(opcion){ 
-  const resultado = document.getElementById("resultado"); 
-  resultado.textContent = "Seleccionaste: " + opcion; 
 }
