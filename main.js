@@ -4,8 +4,25 @@ const tablaProductos =
   document.getElementById("tablaProductos");
 
 const formulario =
-  document.getElementById("productoForm");
+document.getElementById("productoForm");
 
+  function mostrarMensaje(texto, tipo = "success") {
+
+  const mensaje =
+    document.getElementById("mensaje");
+
+  mensaje.className =
+    `alert alert-${tipo} mb-3`;
+
+  mensaje.textContent = texto;
+
+  setTimeout(() => {
+    mensaje.className =
+      "alert d-none mb-3";
+  }, 3000);
+
+}
+  
 document.addEventListener(
   "DOMContentLoaded",
   cargarProductos
@@ -29,7 +46,7 @@ async function cargarProductos() {
         <tr>
           <td>${producto.id}</td>
           <td>${producto.nombre}</td>
-          <td>$${producto.precio}</td>
+          <td>$${producto.precio.toLocaleString("es-CO")}</td>
           <td>${producto.stock}</td>
           <td>
             <button
@@ -101,6 +118,11 @@ formulario.addEventListener(
 
         });
 
+        mostrarMensaje(
+          "Producto actualizado correctamente"
+        );
+
+
       } else {
 
         await fetch(API_URL, {
@@ -115,10 +137,15 @@ formulario.addEventListener(
 
         });
 
+         mostrarMensaje(
+          "Producto agregado correctamente"
+        );
+
       }
 
       formulario.reset();
       document.getElementById("productoId").value = "";
+      document.getElementById("btnGuardar").textContent ="Agregar";
 
       cargarProductos();
 
@@ -152,6 +179,9 @@ async function editarProducto(id) {
 
     document.getElementById("stock").value =
       producto.stock;
+    
+    document.getElementById("btnGuardar").textContent =
+      "Guardar cambios";
 
   } catch(error) {
 
@@ -176,6 +206,10 @@ async function eliminarProducto(id) {
 
     });
 
+    mostrarMensaje(
+      "Producto eliminado correctamente",
+      "danger"
+    );
     cargarProductos();
 
   } catch(error) {
